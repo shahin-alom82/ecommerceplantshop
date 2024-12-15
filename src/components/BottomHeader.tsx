@@ -5,7 +5,7 @@ import Link from "next/link";
 const BottomHeader = () => {
       return (
             <div className="hidden md:block">
-                  <Container className="flex items-center lg:gap-8 gap-4 mt-2">
+                  <Container className="flex items-center lg:gap-8 gap-4 mt-3">
                         {
                               navLink.map((item, index) => (
                                     <div key={index} >

@@ -34,7 +34,7 @@ const Header = () => {
 
                               <div className="relative">
                                     <FaShoppingBag size={25} className="text-gray-600" />
-                                    <span className="absolute bg-green-600 py-[1px] px-1.5 text-white text-xs rounded-full bottom-5 right-[3px]">9</span>
+                                    <span className="absolute bg-[#badb8c] py-[1px] px-1.5 text-gray-600 text-xs rounded-full bottom-5 right-[3px]">9</span>
                               </div>
                         </div>
                         {/* Menu Bar */}
