@@ -1,9 +1,11 @@
+"use client"
 import { logo } from "@/assets";
 import Container from "@/components/Container";
 import Image from "next/image";
 import SearchInput from "./SearchInput";
 import { FaShoppingBag, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
+import { IoMenuSharp } from "react-icons/io5";
 
 
 const Header = () => {
@@ -16,8 +18,12 @@ const Header = () => {
                         </Link>
                         {/* Search Input */}
                         <SearchInput />
+
+
+
                         {/* User & Cart */}
-                        <div className="flex  items-center justify-between gap-4 lg:gap-14">
+
+                        <div className="lg:flex  items-center justify-between gap-4 lg:gap-14 hidden md:block">
                               <div className="flex items-center gap-2">
                                     <span className="border border-gray-400 text-gray-700 py-2 px-2 rounded-full"><FaUserAlt size={20} /></span>
                                     <div className="lg:text-[16px] text-sm">
@@ -31,6 +37,13 @@ const Header = () => {
                                     <span className="absolute bg-green-600 py-[1px] px-1.5 text-white text-xs rounded-full bottom-5 right-[3px]">9</span>
                               </div>
                         </div>
+                        {/* Menu Bar */}
+                        <div className="md:hidden block">
+                              <IoMenuSharp size={30} />
+                        </div>
+
+
+
                   </Container>
             </div>
       );
