@@ -7,14 +7,14 @@ const Banner = () => {
       return (
             <div>
                   {/* Frist Banner */}
-                  <div className='bg-[#dcffab] mt-4'>
+                  <div className='bg-[#dcffab]'>
                         <Container className='py-8'>
                               <Image src={banner} alt='bannerImage' className='lg:h-[450px] mx-auto lg:w-[1100px]' />
 
                         </Container>
                   </div>
                   {/* Secend Banner */}
-                  <Container className='mt-10'>
+                  <Container className='mt-16'>
                         <div className='flex flex-col lg:flex-row gap-5'>
                               <div className='relative'>
                                     <Image src={bannerthree} alt='bannerImage' className='h-[200px] w-[420px]' />
