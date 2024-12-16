@@ -1,13 +1,12 @@
 "use client"
 import { treeBlog } from "@/constants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Container from "../Container";
 import Image from "next/image";
 
 
 const PopularCategory = () => {
       const [selectedProducts, setSelectedProducts] = useState("All");
-      const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
 
       const filterProducts = selectedProducts === "All" ? treeBlog : treeBlog.filter((item) => item.category === selectedProducts);
       return (
@@ -34,7 +33,7 @@ const PopularCategory = () => {
                               {
                                     filterProducts.map((item, index) => (
                                           <div key={index} className="border-gray-300 border">
-                                                <Image src={item?.images[0]?.url || ""} height={200} width={200} alt="img" className="py-2 px-2 mx-auto"/>
+                                                <Image src={item?.images[0]?.url || ""} height={200} width={200} alt="img" className="py-2 px-2 mx-auto" />
                                           </div>
                                     ))
                               }
