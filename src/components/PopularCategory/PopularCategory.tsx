@@ -1,43 +1,103 @@
-"use client"
+"use client";
 import { treeBlog } from "@/constants";
 import { useState } from "react";
 import Container from "../Container";
 import Image from "next/image";
-
+import Modal from "../Modal";
+import ProductImage from "../ProductImage";
 
 const PopularCategory = () => {
-      const [selectedProducts, setSelectedProducts] = useState("All");
+      const [isModalOpen, setIsModalOpen] = useState(false);
+      const [selectedProduct, setSelectedProduct] = useState(null);
+      const [selectedCategory, setSelectedCategory] = useState("All");
 
-      const filterProducts = selectedProducts === "All" ? treeBlog : treeBlog.filter((item) => item.category === selectedProducts);
+      const filterProducts =
+            selectedCategory === "All"
+                  ? treeBlog
+                  : treeBlog.filter((item) => item.category === selectedCategory);
+
+      const openModal = (product) => {
+            setSelectedProduct(product);
+            setIsModalOpen(true);
+      };
+
+      const closeModal = () => {
+            setSelectedProduct(null);
+            setIsModalOpen(false);
+      };
+
       return (
             <div className="mt-16">
                   <Container className="">
+                        {/* Title */}
                         <div>
-                              <h1 className="lg:text-[28px] tracking-wide text-gray-700 text-xl text-center justify-center items-center  uppercase font-medium">Popular Tree Collection</h1>
+                              <h1 className="lg:text-[28px] tracking-wide text-gray-700 text-xl text-center uppercase font-medium">
+                                    Popular Tree Collection
+                              </h1>
                         </div>
+
+                        {/* Category Buttons */}
                         <div className="mt-8 flex justify-center lg:gap-6 gap-2">
                               {["All", "Featured", "Bestselling", "Latest"].map((category) => (
                                     <button
-                                          className={`lg:px-4 px-3 py-1.5 font-medium duration-300 ease-in-out tracking-wide ${selectedProducts === category
+                                          className={`lg:px-4 px-3 py-1.5 font-medium duration-300 ease-in-out tracking-wide ${selectedCategory === category
                                                 ? "bg-[#90ac68] text-white shadow-lg"
                                                 : "border border-gray-400 text-gray-600 hover:bg-gray-200"
                                                 }`}
-                                          onClick={() => setSelectedProducts(category)}
+                                          onClick={() => setSelectedCategory(category)}
                                           key={category}
                                     >
                                           {category}
                                     </button>
                               ))}
                         </div>
+
+                        {/* Product Grid */}
                         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-                              {
-                                    filterProducts.map((item, index) => (
-                                          <div key={index} className="border-gray-300 border">
-                                                <Image src={item?.images[0]?.url || ""} height={200} width={200} alt="img" className="py-2 px-2 mx-auto" />
-                                          </div>
-                                    ))
-                              }
+                              {filterProducts.map((item, index) => (
+                                    <div
+                                          key={index}
+                                          className="border-gray-300 border cursor-pointer"
+                                          onClick={() => openModal(item)} // Pass clicked product to modal
+                                    >
+                                          <Image
+                                                src={item?.images[0]?.url || ""}
+                                                height={200}
+                                                width={200}
+                                                alt="img"
+                                                className="py-2 px-2 mx-auto"
+                                          />
+
+                                    </div>
+                              ))}
                         </div>
+
+                        {/* Modal */}
+                        {isModalOpen && selectedProduct && (
+                              <Modal isOpen={isModalOpen} onClose={closeModal}>
+                                    {/* Modal Content */}
+                                    <div className="bg-white py-4 px-4">
+                                          <div className="flex flex-col lg:flex-row">
+                                                <ProductImage product={selectedProduct} />
+                                                <div>
+                                                      <h2 className="text-xl font-semibold mb-2">
+                                                            {selectedProduct?.name}
+                                                      </h2>
+                                                      <p className="text-gray-600 mb-4">{selectedProduct?.description}</p>
+                                                      <p className="text-gray-800 font-medium">
+                                                            Price: ${selectedProduct?.price}
+                                                      </p>
+                                                </div>
+                                          </div>
+                                          <button
+                                                onClick={closeModal}
+                                                className="mt-4 bg-red-500 text-white py-1 px-3"
+                                          >
+                                                Close
+                                          </button>
+                                    </div>
+                              </Modal>
+                        )}
                   </Container>
             </div>
       );
