@@ -5,10 +5,11 @@ import Container from "../Container";
 import Image from "next/image";
 import Modal from "../Modal";
 import ProductImage from "../ProductImage";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const PopularCategory = () => {
       const [isModalOpen, setIsModalOpen] = useState(false);
-      const [selectedProduct, setSelectedProduct] = useState(null);
+      const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
       const [selectedCategory, setSelectedCategory] = useState("All");
 
       const filterProducts =
@@ -16,7 +17,8 @@ const PopularCategory = () => {
                   ? treeBlog
                   : treeBlog.filter((item) => item.category === selectedCategory);
 
-      const openModal = (product) => {
+
+      const openModal = (product: any) => {
             setSelectedProduct(product);
             setIsModalOpen(true);
       };
@@ -80,12 +82,22 @@ const PopularCategory = () => {
                                           <div className="flex flex-col lg:flex-row">
                                                 <ProductImage product={selectedProduct} />
                                                 <div>
-                                                      <h2 className="text-xl font-semibold mb-2">
+                                                      <h1 className="lg:text-2xl tracking-wide text-gray-800">{selectedProduct?.title}</h1>
+                                                      <h2 className="text-xl font-semibold mt-2">
                                                             {selectedProduct?.name}
                                                       </h2>
-                                                      <p className="text-gray-600 mb-4">{selectedProduct?.description}</p>
-                                                      <p className="text-gray-800 font-medium">
-                                                            Price: ${selectedProduct?.price}
+                                                      <p className="text-gray-600">{selectedProduct?.description}</p>
+                                                      <div className="flex items-center">
+                                                            {Array.from({ length: 5 }).map((_, i) =>
+                                                                  i < 4 ? (
+                                                                        <AiFillStar key={i} className="text-yellow-500" />
+                                                                  ) : (
+                                                                        <AiOutlineStar key={i} className="text-yellow-500" />
+                                                                  )
+                                                            )}
+                                                            <span className="text-gray-600">(150 Reviews)</span>
+                                                      </div>
+                                                      <p className="text-gray-800 font-medium">{selectedProduct?.price}
                                                       </p>
                                                 </div>
                                           </div>
