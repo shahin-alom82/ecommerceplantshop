@@ -6,6 +6,8 @@ import bannertwo from "./34.webp"
 import bannerthree from "./35.webp"
 import bannerfour from "./36.webp"
 import footer from "./footer-img2.png"
+import man from "./man.jpg"
+import contact from "./contact.jpg";
 
 
 export {
@@ -15,5 +17,8 @@ export {
       bannertwo,
       bannerthree,
       bannerfour,
-      footer
+      footer,
+      man,
+      contact
+
 }

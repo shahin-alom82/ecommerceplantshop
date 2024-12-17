@@ -1,12 +1,32 @@
 "use client"
-import { useState } from "react";
+import { treeBlog } from "@/constants";
+import { ProductType } from "@/type";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
+import PriceFormate from "./PriceFormate";
+import { IoSearch } from "react-icons/io5";
 
 const SearchInput = () => {
 
       const [search, setSearch] = useState('')
+      const [filterData, setFilterData] = useState<ProductType[]>([]);
+      const [isSearching, setIsSearching] = useState<boolean>(false);
 
+      useEffect(() => {
+            const timeout = setTimeout(() => {
+                  setIsSearching(true);
+                  const filtered = treeBlog.filter((item) =>
+                        item.title.toLowerCase().includes(search.toLowerCase())
+                  );
+                  setFilterData(filtered);
+                  setIsSearching(false);
+            }, 300); // Debounce to 300ms
+
+            return () => clearTimeout(timeout);
+      }, [search]);
       return (
             <div className="hidden md:block relative">
                   <input
@@ -22,6 +42,49 @@ const SearchInput = () => {
                               <IoMdClose onClick={() => setSearch('')} className="absolute top-2.5 right-6 hover:text-red-600 cursor-pointer duration-300" size={20} />
                         )
                   }
+
+                  {/* content */}
+                  {search && (
+                        <div className="absolute z-10 w-full bg-white  mt-6 max-h-60 overflow-auto transition-all duration-300">
+                              {isSearching ? (
+                                    <div className="p-2 text-gray-500">Searching...</div>
+                              ) : filterData.length > 0 ? (
+                                    filterData.map((item) => (
+                                          <Link
+                                                key={item.id}
+                                                onClick={() => setSearch("")}
+                                                href={{ pathname: `/singleproduct/${item.id}` }}
+                                          >
+                                                <div className="p-3 hover:bg-gray-100  cursor-pointer flex mt-1  space-x-4 transition duration-200">
+                                                      <Image
+                                                            className="w-16 h-16 ease-in-out  border border-gray-300"
+                                                            src={item.images[0].url}
+                                                            alt={item.title}
+                                                            width={48}
+                                                            height={48}
+                                                      />
+                                                      <div>
+                                                            <h1 className="text-sm font-medium text-gray-800">
+                                                                  {item.title}
+                                                            </h1>
+                                                            <PriceFormate className="text-sm text-gray-700 tracking-wide" amount={item?.price} />
+                                                      </div>
+                                                </div>
+                                          </Link>
+                                    ))
+                              ) : (
+                                    <div className="py-6 px-4 gap-2 text-gray-500 flex items-center">
+                                          <IoSearch />
+                                          <h1> No results found</h1>
+                                    </div>
+                              )}
+                        </div>
+                  )}
+
+
+
+
+
             </div>
       );
 };

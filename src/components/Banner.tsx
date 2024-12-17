@@ -8,7 +8,7 @@ const Banner = () => {
             <div>
                   {/* Frist Banner */}
                   <div className='bg-[#dcffab]'>
-                        <Container className='py-8'>
+                        <Container className='py-14'>
                               <Image src={banner} alt='bannerImage' className='lg:h-[450px] mx-auto lg:w-[1100px]' />
 
                         </Container>

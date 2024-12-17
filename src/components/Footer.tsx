@@ -19,7 +19,7 @@ const Footer = () => {
                                           </div>
                                           <div className="flex items-center gap-2">
                                                 <GrLocation />
-                                                <p>Assim, Fulbaira, Mymensignh</p>
+                                                <p>Assim, Fulbaria, Mymensingh</p>
                                           </div>
                                           <div className="flex items-center gap-2">
                                                 <FiPhoneCall />

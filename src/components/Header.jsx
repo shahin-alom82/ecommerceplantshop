@@ -12,16 +12,16 @@ const Header = () => {
       return (
             <div className="border-b border-gray-300">
                   <Container className="flex items-center py-6 gap-2 justify-between">
-                        {/* Logo */}
+                        {/* ------------ Logo ---------------- */}
                         <Link href={"/"}>
                               <Image src={logo} alt="logo" className="h-8" />
                         </Link>
-                        {/* Search Input */}
+                        {/* ------------- Search Input ------------ */}
                         <SearchInput />
 
 
 
-                        {/* User & Cart */}
+                        {/* -------------- User & Cart --------------- */}
 
                         <div className="lg:flex  items-center justify-between gap-4 lg:gap-14 hidden md:block">
                               <div className="flex items-center gap-2">
@@ -37,7 +37,7 @@ const Header = () => {
                                     <span className="absolute bg-[#badb8c] py-[1px] px-1.5 text-gray-600 text-xs rounded-full bottom-5 right-[3px]">9</span>
                               </div>
                         </div>
-                        {/* Menu Bar */}
+                        {/* ----------------- Menu Bar ---------------- */}
                         <div className="md:hidden block">
                               <IoMenuSharp size={30} />
                         </div>
