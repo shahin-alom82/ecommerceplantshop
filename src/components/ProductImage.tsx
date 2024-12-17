@@ -1,9 +1,10 @@
 "use client";
+import { ProductType } from "@/type";
 import Image from "next/image";
 import { useState } from "react";
 
-const ProductImage = ({ product }: { product: any }) => {
-      const [imageClick, setImageClick] = useState(product?.images?.[0]?.url || "");
+const ProductImage = ({ product }: { product: ProductType }) => {
+      const [imageClick, setImageClick] = useState(product?.images?.[0].url);
 
       return (
             <div className="flex">

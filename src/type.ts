@@ -1,3 +1,6 @@
+
+
+
 export interface ProductType {
       id: number;
       title: string;
@@ -8,5 +11,11 @@ export interface ProductType {
       rating: number;
       offer: string;
       category: string;
-      images: string[];
+      images: {
+            url: string;
+      }[];
 };
+
+// export interface Product{
+
+// }

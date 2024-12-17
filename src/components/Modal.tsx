@@ -1,6 +1,10 @@
+type ModalProps = {
+      isOpen: boolean;
+      onClose: () => void; 
+      children: React.ReactNode; 
+};
 
-
-const Modal = ({ isOpen, children }: any) => {
+const Modal = ({ isOpen, children }: ModalProps) => {
       if (!isOpen) return null;
 
       return (
