@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import PriceFormate from "./PriceFormate";
 import { IoSearch } from "react-icons/io5";
 
 const SearchInput = () => {
@@ -67,7 +66,7 @@ const SearchInput = () => {
                                                             <h1 className="text-sm font-medium text-gray-800">
                                                                   {item.title}
                                                             </h1>
-                                                            <PriceFormate className="text-sm text-gray-700 tracking-wide" amount={item?.price} />
+                                                            <p>${item?.price}</p>
                                                       </div>
                                                 </div>
                                           </Link>
