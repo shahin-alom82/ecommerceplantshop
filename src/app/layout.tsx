@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from '@/components/Header'
 import BottomHeader from "@/components/BottomHeader";
 import Footer from "@/components/Footer";
+import Layout from "@/components/Layout/Layout";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,12 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-bodyFont`}
       >
-        <div className="sticky top-0 z-10 bg-white">
-          <Header />
-          <BottomHeader />
-        </div>
-        {children}
-        <Footer />
+        <Layout>
+          <div className="sticky top-0 z-10 bg-white">
+            <Header />
+            <BottomHeader />
+          </div>
+          {children}
+          <Footer />
+        </Layout>
       </body>
     </html>
   );
