@@ -7,7 +7,6 @@ import ProductImage from "../ProductImage";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { ProductType } from "@/type";
 import CartProduct from "../CartProduct";
-import PriceFormate from "../PriceFormate";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BiRefresh } from "react-icons/bi";
 
@@ -88,7 +87,8 @@ const PopularCategory = () => {
                                                             )}
                                                             <span className="text-gray-600 ml-2">(150 Reviews)</span>
                                                       </div>
-                                                      <PriceFormate className="text-gray-800 font-medium mt-2" amount={selectedProduct?.price} />
+                        
+                                                      <p className="text-gray-800 font-medium mt-2">{selectedProduct?.price}</p>
                                                       <h1 className="text-gray-700 mt-1">{selectedProduct?.offer}</h1>
                                                       <div className="flex items-center gap-2 text-gray-700 mt-1">
                                                             <CiDeliveryTruck size={20} />
