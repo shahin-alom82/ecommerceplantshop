@@ -1,5 +1,4 @@
 import Container from '@/components/Container';
-import PriceFormate from '@/components/PriceFormate';
 import ProductImage from '@/components/ProductImage';
 import { treeBlog } from '@/constants';
 import { ProductType } from '@/type';
