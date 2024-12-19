@@ -39,7 +39,8 @@ const SingleProductPage = async ({ params }: { params: Promise<{ id: number }> }
                                           )}
                                           <span className="text-gray-600 ml-2">(150 Reviews)</span>
                                     </div>
-                                    <PriceFormate className="text-gray-800 font-medium mt-2" amount={singleData?.price!} />
+                                    {/* <PriceFormate className="text-gray-800 font-medium mt-2" amount={singleData?.price} /> */}
+                                    <p className="text-gray-800 font-medium mt-2">?{singleData?.price}</p>
                                     <h1 className="text-gray-700 mt-1">{singleData?.offer}</h1>
                                     <div className="flex items-center gap-2 text-gray-700 mt-1">
                                           <CiDeliveryTruck size={20} />
