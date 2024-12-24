@@ -107,18 +107,18 @@ const Header = () => {
                                                       {
                                                             session?.user ? <div className="flex items-center gap-2">
 
-                                                                  <Image height={100} width={100} src={session?.user?.image} alt="userImage" className="rounded-full" />
+                                                                  <Image height={100} width={100} src={session?.user?.image} alt="userImage" className="rounded-full h-8 w-8" />
                                                                   <div>
                                                                         <div className="flex items-center gap-1 text-red-500">
                                                                               <button
                                                                                     onClick={() => signOut()}
-                                                                                    className="text-lightext hover:text-gray-300 duration-300 hoverEffect"
+                                                                                    className="text-lightext hover:text-gray-300 duration-300 hoverEffect text-sm"
                                                                               >
                                                                                     Logout
                                                                               </button>
                                                                               <CiLogout />
                                                                         </div>
-                                                                        <p>{session?.user?.email}</p>
+                                                                        <p className="text-sm">{session?.user?.email}</p>
                                                                   </div>
                                                             </div> : <div className="flex items-center gap-2">
                                                                   <span className="border border-lightext hover:border-gray-300 duration-300 h-2 w-2 rounded-full"></span> <button
