@@ -79,7 +79,15 @@ const Header = () => {
                               {/* Mobile Menu */}
                               {isMenuOpen && (
                                     <div className="absolute top-full left-0 bg-black text-white w-full shadow-md z-40">
-                                          <h1 className="text-gray-300 text-[24px] px-8 mt-6">Nabigation Manu</h1>
+                                          <div className="flex items-center justify-between mt-6">
+                                                <h1 className="text-gray-300 text-[24px] px-8">Nabigation Manu</h1>
+                                                <Link className="px-8" href={"/cart"}>
+                                                      <div className="relative">
+                                                            <FaShoppingBag size={25} className="text-gray-500" />
+                                                            <span className="absolute bg-[#badb8c] py-[1px] px-1.5 text-gray-600 text-xs rounded-full bottom-5 text-center justify-center items-center">{products?.length}</span>
+                                                      </div>
+                                                </Link>
+                                          </div>
                                           <ul className="flex flex-col gap-4 px-8 mb-2 mt-6">
                                                 {navLink.map((item, index) => (
                                                       <div className="flex items-center gap-2" key={index}>
