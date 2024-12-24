@@ -66,9 +66,9 @@ const ShopPage = () => {
                                     <h1 className="text-gray-800 tracking-wide text-sm">Price Rangs</h1>
                                     <div className="mt-1 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
                                           <button className="border border-gray-300 text-sm text-gray-600 py-1.5 px-1.5">1 to 20</button>
+                                          <button className="border border-gray-300 text-sm text-gray-600 py-1.5 px-1.5">21 to 30</button>
                                           <button className="border border-gray-300 text-sm text-gray-600 py-1.5 px-1.5">31 to 40</button>
                                           <button className="border border-gray-300 text-sm text-gray-600 py-1.5 px-1.5">41 to 50</button>
-                                          <button className="border border-gray-300 text-sm text-gray-600 py-1.5 px-1.5">51 to 60</button>
                                          
                                          
                                     </div>
