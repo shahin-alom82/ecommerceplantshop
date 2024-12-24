@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Layout from "@/components/Layout/Layout";
 import BottomHeader from "@/components/BottomHeader";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +30,14 @@ export default function RootLayout({ children }) {
         <Layout>
           <div className="sticky top-0 z-10 bg-white">
             <Header />
-            <BottomHeader/>
+            <BottomHeader />
           </div>
           {children}
-          <Footer/>
+          <Footer />
+          <Toaster
+            position="bottom-right"
+            reverseOrder={false}
+          />
         </Layout>
       </body>
     </html>
